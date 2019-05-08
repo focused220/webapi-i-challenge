@@ -3,12 +3,17 @@ const knexConfig = require('../knexfile.js');
 const db = knex(knexConfig.development);
 
 module.exports = {
+  cancel,
   find,
   findById,
   insert,
   update,
   remove,
 };
+
+function cancel(){
+  return {errorMessage: "Please provide name and bio for the user." };
+}
 
 function find() {
   return db('users');
