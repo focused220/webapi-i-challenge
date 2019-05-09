@@ -3,7 +3,6 @@ const knexConfig = require('../knexfile.js');
 const db = knex(knexConfig.development);
 
 module.exports = {
-  cancel,
   find,
   findById,
   insert,
@@ -11,9 +10,6 @@ module.exports = {
   remove,
 };
 
-function cancel(){
-  return {errorMessage: "Please provide name and bio for the user." };
-}
 
 function find() {
   return db('users');
@@ -39,6 +35,6 @@ function update(id, user) {
 
 function remove(id) {
   return db('users')
-    .where('id', Number(id))
+    .where('id', Number(id)) 
     .del();
 }
