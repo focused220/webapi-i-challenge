@@ -10,6 +10,7 @@ module.exports = {
   remove,
 };
 
+
 function find() {
   return db('users');
 }
@@ -34,6 +35,6 @@ function update(id, user) {
 
 function remove(id) {
   return db('users')
-    .where('id', Number(id))
+    .where('id', Number(id)) 
     .del();
 }
