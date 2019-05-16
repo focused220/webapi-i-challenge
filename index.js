@@ -1,7 +1,11 @@
 // implement your API here
+require('dotenv').config();
 const express = require('express');
 const db = require('./data/db')
 const server = express();
+
+const port = process.env.PORT || 9090;
+
 server.use(express.json()); 
 
 server.post('/users', (req, res)=>{
@@ -51,6 +55,6 @@ server.put('/users/:id', (req, res) =>{
 })
 
 
-server.listen(9090, ()=>{
-    console.log('Server listening on port 9090')
+server.listen(port, ()=>{
+    console.log(`Server listening on port ${port}` )
 })
